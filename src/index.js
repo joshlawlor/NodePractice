@@ -4,6 +4,12 @@ const openai = require('openai')
 
 openai.apiKey = "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";
 
+app.get('/', (req, res) => {
+  return(
+    <div>Hello</div>
+  )
+})
+
 app.post('/search', (req, res) => {
     const { query } = req.body
     openai.completions.create({

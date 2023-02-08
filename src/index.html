@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Bot</title>
+</head>
+<body>
+  <form>
+    <input id="query" type="text" placeholder="Enter a query">
+    <button type="submit">Search</button>
+  </form>
+  <div id="response"></div>
+
+  <script>
+    const form = document.querySelector('form')
+    const query = document.getElementById('query')
+    const response = document.getElementById('response')
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      fetch('/search', {
+        method: 'POST',
+        body: JSON.stringify({ query: query.value }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+        .then(res => res.text())
+        .then(data => {
+          response.innerHTML = data
+        })
+    })
+  </script>
+</body>
+</html>
