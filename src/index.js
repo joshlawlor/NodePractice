@@ -5,9 +5,7 @@ const openai = require('openai')
 openai.apiKey = "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";
 
 app.get('/', (req, res) => {
-  return(
-    <div>Hello</div>
-  )
+  return  
 })
 
 app.post('/search', (req, res) => {
@@ -25,5 +23,5 @@ app.post('/search', (req, res) => {
 app.use(express.json())
 
 app.listen(4000, () => {
-    console.log('Server started on port 3000')
+    console.log('Server started on port 4000')
 })
